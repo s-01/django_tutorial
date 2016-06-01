@@ -1,14 +1,17 @@
 <html>
 	<head>
-	<title>SNUSEGGI Main</title>
+	<title>SNUSEGGI MainS</title>
 	</head>
 	<body>
-		<p>★☆★☆★☆★☆ Welcome to S.N.U.S.E.G.G.I ☆★☆★☆★☆★</p>
+		<p>★☆★☆★☆★☆ Welcome to S.N.U.S.E.G.G.I☆★☆★☆★☆★</p>
 		{% for rest in restaurant_list %}
 			<div>
 				<p>name : {{rest.name}}</p>
 				<p>rating : {{rest.rating}}</p>
-				<p>point : {{rest.point}}</p>
+				<p>point_taste : {{rest.point_taste}}</p>
+				<p>point_service : {{rest.point_service}}</p>
+				<p>point_price : {{rest.point_price}}</p>
+				<p>point_average : {{rest.point_avg}}</p>
 				<p>comment : {{rest.comment}}</p>
 			</div>
 		{% endfor %}
