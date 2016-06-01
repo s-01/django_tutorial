@@ -1,0 +1,16 @@
+<html>
+	<head>
+	<title>SNUSEGGI Main</title>
+	</head>
+	<body>
+		<p>★☆★☆★☆★☆ Welcome to S.N.U.S.E.G.G.I ☆★☆★☆★☆★</p>
+		{% for rest in restaurant_list %}
+			<div>
+				<p>name : {{rest.name}}</p>
+				<p>rating : {{rest.rating}}</p>
+				<p>point : {{rest.point}}</p>
+				<p>comment : {{rest.comment}}</p>
+			</div>
+		{% endfor %}
+	</body>
+</html>
