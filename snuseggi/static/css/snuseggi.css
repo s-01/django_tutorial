@@ -1,0 +1,22 @@
+#site {
+    height: 60px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #FCA205;
+}
+
+.sitename {
+    margin-top: 15px;
+    margin-left: 20px;
+    font-size:40px;
+}
+
+.sitename a {
+    color: #FCA205;
+    float:left;
+}
+
+.sitename2 {
+    margin-top: 30px;
+    margin-right: 25px;
+    float:right;
+}

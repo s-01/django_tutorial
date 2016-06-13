@@ -1,0 +1,7 @@
+
+<h1>Assessment</h1>
+<p>Load First, Then Save</p>
+<form method="POST">{% csrf_token %}
+	{{form.as_p}}
+	<button type="submit">Load and Save</button>
+</form>

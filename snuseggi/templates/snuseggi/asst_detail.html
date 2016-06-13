@@ -1,0 +1,17 @@
+
+<html>
+	<div>
+	<p>restaurant : {{asst.restaurant}}</p>
+	<p>classification: {{asst.classification}}</p>
+	<p>menu : {{asst.dailyMenu.menu.name}}</p>
+	<p>date : {{asst.date}}</p>
+	<p>save_time : {{asst.save_time}}</p>
+	<p>point_taste : {{asst.point_taste}}</p>
+	<p>point_service : {{asst.point_service}}</p>
+	<p>point_price : {{asst.point_price}}</p>
+	<p>comment : {{asst.comment}}</p>
+	</div>
+<form method="POST">{% csrf_token %}
+<button type="submit">Go Home</button>
+</form>
+</html>
