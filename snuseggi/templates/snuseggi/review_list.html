@@ -1,19 +1,28 @@
-﻿<html>
+<html>
 	<head>
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+	{% load staticfiles %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/reviewlist.css' %}" />
 	<title>{{restaurant}}</title>
+	<div id="site"><div class="sitename"><a href="main">SNUSEGGI</a></div><div class="sitename2">서울대학교 학식평가 시스템</div></div>
 	</head>
 	<body>
-		<div>
-			<p>☆★{{restaurant}}★☆</p>
-			<p>---------------</p>
-			<p>아침 : {{breakfast}}</p>
-			<p>평점 : {{point_breakfast}}</p>
-			<p>---------------</p>
-			<p>점심 : {{lunch}}</p>
-			<p>평점 : {{point_lunch}}</p>
-			<p>---------------</p>
-			<p>저녁 : {{dinner}}</p>
-			<p>평점 : {{point_dinner}}</p>
+		<div id="menu">
+			<div class="title"><a href="main">☆★{{restaurant}}★☆</a></div>
+			<div class="assess">
+				<div class="assessmenu">
+					<div class="seggi">아침</div>
+					<div class="wrapper"><div class="m">{{breakfast}}</div><div class="a">평점 : {{point_breakfast}}</div></div>
+				</div>
+				<div class="assessmenu">
+					<div class="seggi">점심</div>
+					<div class="wrapper"><div class="m">{{lunch}}</div><div class="a">평점 : {{point_lunch}}</div></div>
+				</div>
+				<div class="assessmenu">
+					<div class="seggi">저녁</div>
+					<div class="wrapper"><div class="m">{{dinner}}</div><div class="a">평점 : {{point_dinner}}</div></div>
+			</div>
 		</div>
 	</body>
 </html>
