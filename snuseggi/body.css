@@ -1,0 +1,70 @@
+#body {
+	width: auto;
+	clear: both;
+}
+
+#body .name {
+	width: 950px;
+	height: 80px;
+	margin-bottom: 30px;
+	margin: 30px auto;
+	border: 2px solid #FCA205;
+	border-radius: 10px;
+	float: center auto;
+	text-align: left;
+}
+
+#body .name a {
+	width: 440px;
+	height: 50px;
+	margin-left: 10px;
+	margin-top: 13px;
+	padding: 10px;
+	font-size: 25px;
+	font-style: dotum;
+	float: left;
+	text-align: center;
+}
+
+#body .name p {
+	width: 200px;
+	font-size: 12px;
+	font-style: bold;
+	float: left;
+	margin-top: 28px;
+	margin-left: 28px;
+}
+
+
+#body .asses {
+	width: 100px auto;
+	margin-right: 30px;
+	padding-top: 5px;
+	height: 50px;
+	font-size: 12px;
+	font-style: bold;
+	text-align: right;
+}
+
+#body .name a {
+	width: 100px auto;
+	height: 50px;
+	margin-left: 30px;
+	margin-top: 13px;
+	padding: 10px;
+	font-size: 25px;
+	font-style: dotum;
+	float: left;
+	text-align: center;
+}
+
+.more {
+	width: 950px;
+	height: 20px;
+	margin: 30px auto;
+	border: 2px solid #FCA205;
+	border-radius: 10px;
+	background-color: #FCA205;
+	float: center;
+	text-align: center;
+}
