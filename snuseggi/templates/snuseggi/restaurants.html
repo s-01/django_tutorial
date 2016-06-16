@@ -1,11 +1,11 @@
-﻿<html>
+<html>
 	<head>
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 	{% load staticfiles %}
 	<link rel="stylesheet" type="text/css" href="{% static 'css/snuseggi.css' %}" />
 	<title>SNUSEGGI MainS</title>
-	<div id="site"><div class="sitename"><a href="#">SNUSEGGI</a></div><div class="sitename2">서울대학교 학식평가 시스템</div></div>
+	<div id="site"><div class="sitename"><a href="main">SNUSEGGI</a></div><div class="sitename2">서울대학교 학식평가 시스템</div></div>
 	</head>
 	<body>
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
@@ -125,7 +125,7 @@
 		{% for rest in restaurant_list %}
 			<div id="body">
 				{% if forloop.counter0 > 2 %}
-				<div class="name"><a href="#">{{rest.name}}</a>
+				<div class="name"><a href="review_list?res={{rest}}">{{rest.name}}</a>
 				<p>평점 : 
 				     {% if rest.point_avg < 0.5 and rest.point_avg >= 0 %}
 					<img src="{% static "img/0.png" %}" width=150px; height=20px;>
