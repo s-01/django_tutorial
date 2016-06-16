@@ -1,19 +1,236 @@
 <html>
 	<head>
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+	{% load staticfiles %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/snuseggi.css' %}" />
 	<title>SNUSEGGI MainS</title>
+	<div id="site"><div class="sitename"><a href="main">SNUSEGGI</a></div><div class="sitename2">서울대학교 학식평가 시스템</div></div>
 	</head>
 	<body>
-		<p>★☆★☆★☆★☆ Welcome to S.N.U.S.E.G.G.I☆★☆★☆★☆★</p>
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+	{% load staticfiles %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/body.css' %}" />
+		<p align="center">★☆★☆★☆★☆ Welcome to S.N.U.S.E.G.G.I☆★☆★☆★☆★</p>
 		{% for rest in restaurant_list %}
-			<div>
-				<p>name : {{rest.name}}</p>
-				<p>rating : {{rest.rating}}</p>
-				<p>point_taste : {{rest.point_taste}}</p>
-				<p>point_service : {{rest.point_service}}</p>
-				<p>point_price : {{rest.point_price}}</p>
-				<p>point_average : {{rest.point_avg}}</p>
-				<p>comment : {{rest.comment}}</p>
+			<div id="body">
+				{% if forloop.counter0 <= 2 %}
+				<div class="name"><a href="review_list?res={{rest}}">{{rest.name}}</a>
+				<p>평점 : 
+				     {% if rest.point_avg < 0.5 and rest.point_avg >= 0 %}
+					<img src="{% static "img/0.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_avg < 1 and rest.point_avg >= 0.5 %}
+					<img src="{% static "img/0.5.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_avg < 1.5 and rest.point_avg >= 1 %}
+					<img src="{% static "img/1.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_avg < 2 and rest.point_avg >= 1.5 %}
+					<img src="{% static "img/1.5.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_avg < 2.5 and rest.point_avg >= 2 %}
+					<img src="{% static "img/2.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_avg < 3 and rest.point_avg >= 2.5 %}
+					<img src="{% static "img/2.5.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_avg < 3.5 and rest.point_avg >= 3 %}
+					<img src="{% static "img/3.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_avg < 4 and rest.point_avg >= 3.5 %}
+					<img src="{% static "img/3.5.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_avg < 4.5 and rest.point_avg >= 4 %}
+					<img src="{% static "img/4.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_avg < 5 and rest.point_avg >= 4.5 %}
+					<img src="{% static "img/4.5.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_avg >= 5 %}
+					<img src="{% static "img/5.png" %}" width=150px; height=20px;>
+				     {% endif %}</p>
+				<div class="asses">
+				     맛 : 
+				     {% if rest.point_taste < 0.5 and rest.point_taste >= 0 %}
+					<img src="{% static "img/0.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_taste < 1 and rest.point_taste >= 0.5 %}
+					<img src="{% static "img/0.5.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_taste < 1.5 and rest.point_taste >= 1 %}
+					<img src="{% static "img/1.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_taste < 2 and rest.point_taste >= 1.5 %}
+					<img src="{% static "img/1.5.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_taste < 2.5 and rest.point_taste >= 2 %}
+					<img src="{% static "img/2.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_taste < 3 and rest.point_taste >= 2.5 %}
+					<img src="{% static "img/2.5.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_taste < 3.5 and rest.point_taste >= 3 %}
+					<img src="{% static "img/3.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_taste < 4 and rest.point_taste >= 3.5 %}
+					<img src="{% static "img/3.5.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_taste < 4.5 and rest.point_taste >= 4 %}
+					<img src="{% static "img/4.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_taste < 5 and rest.point_taste >= 4.5 %}
+					<img src="{% static "img/4.5.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_taste >= 5 %}
+					<img src="{% static "img/5.png" %}" width=150px; height=20px;>
+				     {% endif %}
+				     </br>
+				     서비스 : 
+				     {% if rest.point_service < 0.5 and rest.point_service >= 0 %}
+					<img src="{% static "img/0.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_service < 1 and rest.point_service >= 0.5 %}
+					<img src="{% static "img/0.5.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_service < 1.5 and rest.point_service >= 1 %}
+					<img src="{% static "img/1.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_service < 2 and rest.point_service >= 1.5 %}
+					<img src="{% static "img/1.5.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_service < 2.5 and rest.point_service >= 2 %}
+					<img src="{% static "img/2.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_service < 3 and rest.point_service >= 2.5 %}
+					<img src="{% static "img/2.5.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_service < 3.5 and rest.point_service >= 3 %}
+					<img src="{% static "img/3.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_service < 4 and rest.point_service >= 3.5 %}
+					<img src="{% static "img/3.5.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_service < 4.5 and rest.point_service >= 4 %}
+					<img src="{% static "img/4.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_service < 5 and rest.point_service >= 4.5 %}
+					<img src="{% static "img/4.5.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_service >= 5 %}
+					<img src="{% static "img/5.png" %}" width=150px; height=20px;>
+				     {% endif %}
+				     </br>
+				     가격 : 
+				     {% if rest.point_price < 0.5 and rest.point_price >= 0 %}
+					<img src="{% static "img/0.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_price < 1 and rest.point_price >= 0.5 %}
+					<img src="{% static "img/0.5.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_price < 1.5 and rest.point_price >= 1 %}
+					<img src="{% static "img/1.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_price < 2 and rest.point_price >= 1.5 %}
+					<img src="{% static "img/1.5.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_price < 2.5 and rest.point_price >= 2 %}
+					<img src="{% static "img/2.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_price < 3 and rest.point_price >= 2.5 %}
+					<img src="{% static "img/2.5.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_price < 3.5 and rest.point_price >= 3 %}
+					<img src="{% static "img/3.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_price < 4 and rest.point_price >= 3.5 %}
+					<img src="{% static "img/3.5.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_price < 4.5 and rest.point_price >= 4 %}
+					<img src="{% static "img/4.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_price < 5 and rest.point_price >= 4.5 %}
+					<img src="{% static "img/4.5.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_price >= 5 %}
+					<img src="{% static "img/5.png" %}" width=150px; height=20px;>
+				     {% endif %}
+				</div></div>
+				{% endif %}
 			</div>
 		{% endfor %}
+		<a onclick="this.nextSibling.style.display=(this.nextSibling.style.display=='none')?'block':'none';" href="javascript:void(0)"><div class="more" align="center">더보기</div></a><div style="DISPLAY: none">
+		</br>
+		{% for rest in restaurant_list %}
+			<div id="body">
+				{% if forloop.counter0 > 2 %}
+				<div class="name"><a href="review_list?res={{rest}}">{{rest.name}}</a>
+				<p>평점 : 
+				     {% if rest.point_avg < 0.5 and rest.point_avg >= 0 %}
+					<img src="{% static "img/0.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_avg < 1 and rest.point_avg >= 0.5 %}
+					<img src="{% static "img/0.5.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_avg < 1.5 and rest.point_avg >= 1 %}
+					<img src="{% static "img/1.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_avg < 2 and rest.point_avg >= 1.5 %}
+					<img src="{% static "img/1.5.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_avg < 2.5 and rest.point_avg >= 2 %}
+					<img src="{% static "img/2.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_avg < 3 and rest.point_avg >= 2.5 %}
+					<img src="{% static "img/2.5.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_avg < 3.5 and rest.point_avg >= 3 %}
+					<img src="{% static "img/3.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_avg < 4 and rest.point_avg >= 3.5 %}
+					<img src="{% static "img/3.5.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_avg < 4.5 and rest.point_avg >= 4 %}
+					<img src="{% static "img/4.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_avg < 5 and rest.point_avg >= 4.5 %}
+					<img src="{% static "img/4.5.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_avg >= 5 %}
+					<img src="{% static "img/5.png" %}" width=150px; height=20px;>
+				     {% endif %}</p>
+				<div class="asses">
+				     맛 : 
+				     {% if rest.point_taste < 0.5 and rest.point_taste >= 0 %}
+					<img src="{% static "img/0.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_taste < 1 and rest.point_taste >= 0.5 %}
+					<img src="{% static "img/0.5.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_taste < 1.5 and rest.point_taste >= 1 %}
+					<img src="{% static "img/1.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_taste < 2 and rest.point_taste >= 1.5 %}
+					<img src="{% static "img/1.5.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_taste < 2.5 and rest.point_taste >= 2 %}
+					<img src="{% static "img/2.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_taste < 3 and rest.point_taste >= 2.5 %}
+					<img src="{% static "img/2.5.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_taste < 3.5 and rest.point_taste >= 3 %}
+					<img src="{% static "img/3.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_taste < 4 and rest.point_taste >= 3.5 %}
+					<img src="{% static "img/3.5.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_taste < 4.5 and rest.point_taste >= 4 %}
+					<img src="{% static "img/4.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_taste < 5 and rest.point_taste >= 4.5 %}
+					<img src="{% static "img/4.5.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_taste >= 5 %}
+					<img src="{% static "img/5.png" %}" width=150px; height=20px;>
+				     {% endif %}
+				     </br>
+				     서비스 : 
+				     {% if rest.point_service < 0.5 and rest.point_service >= 0 %}
+					<img src="{% static "img/0.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_service < 1 and rest.point_service >= 0.5 %}
+					<img src="{% static "img/0.5.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_service < 1.5 and rest.point_service >= 1 %}
+					<img src="{% static "img/1.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_service < 2 and rest.point_service >= 1.5 %}
+					<img src="{% static "img/1.5.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_service < 2.5 and rest.point_service >= 2 %}
+					<img src="{% static "img/2.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_service < 3 and rest.point_service >= 2.5 %}
+					<img src="{% static "img/2.5.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_service < 3.5 and rest.point_service >= 3 %}
+					<img src="{% static "img/3.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_service < 4 and rest.point_service >= 3.5 %}
+					<img src="{% static "img/3.5.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_service < 4.5 and rest.point_service >= 4 %}
+					<img src="{% static "img/4.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_service < 5 and rest.point_service >= 4.5 %}
+					<img src="{% static "img/4.5.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_service >= 5 %}
+					<img src="{% static "img/5.png" %}" width=150px; height=20px;>
+				     {% endif %}
+				     </br>
+				     가격 : 
+				     {% if rest.point_price < 0.5 and rest.point_price >= 0 %}
+					<img src="{% static "img/0.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_price < 1 and rest.point_price >= 0.5 %}
+					<img src="{% static "img/0.5.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_price < 1.5 and rest.point_price >= 1 %}
+					<img src="{% static "img/1.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_price < 2 and rest.point_price >= 1.5 %}
+					<img src="{% static "img/1.5.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_price < 2.5 and rest.point_price >= 2 %}
+					<img src="{% static "img/2.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_price < 3 and rest.point_price >= 2.5 %}
+					<img src="{% static "img/2.5.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_price < 3.5 and rest.point_price >= 3 %}
+					<img src="{% static "img/3.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_price < 4 and rest.point_price >= 3.5 %}
+					<img src="{% static "img/3.5.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_price < 4.5 and rest.point_price >= 4 %}
+					<img src="{% static "img/4.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_price < 5 and rest.point_price >= 4.5 %}
+					<img src="{% static "img/4.5.png" %}" width=150px; height=20px;>
+				     {% elif rest.point_price >= 5 %}
+					<img src="{% static "img/5.png" %}" width=150px; height=20px;>
+				     {% endif %}
+				</div></div>
+				{% endif %}
+			</div>
+		{% endfor %}
+		</br>
+		<a onclick="this.parentNode.style.display='none';" href="javascript:void(0)"><div class="more" align="center">접기</div></a>
+		</div>
 	</body>
 </html>
