@@ -6,4 +6,5 @@ urlpatterns = [
     url(r'^asst$', views.assessments, name='assessments'),
     url(r'^asst_detail/(?P<pk>[0-9]+)/$', views.asst_detail, name='asst_detail'),
     url(r'^write$', views.write, name='write$'),
+    url(r'^review_list$', views.review_list, name='review_list$'),
 ]

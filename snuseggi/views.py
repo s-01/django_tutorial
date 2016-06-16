@@ -11,6 +11,7 @@ from django.http import HttpResponse
 from django.db.models import Avg
 from decimal import *
 from tkinter.constants import NUMERIC
+from .parsing import menulist
 
 import logging
 logger = logging.getLogger(__name__)
@@ -37,7 +38,7 @@ def restaurants(request):
         rest.point_price = avg_price
         rest.point_average = rest.point_avg()
         rest.save()
-    restaurant_list.order_by('-point_average')
+    restaurant_list = Restaurant.objects.all().order_by('-point_average')
     return render(request, 'snuseggi/restaurants.html', {'restaurant_list' : restaurant_list})
 
 def assessments(request):
@@ -64,3 +65,27 @@ def write(request):
     else:
         form = AssessForm_sel()
     return render(request, 'snuseggi/selectForm.html', {'form': form})
+
+# input : name of restaurant
+def review_list(request):
+    input='기숙사식당관악사(919동)'
+    today_menus = menulist(input)
+
+    point_of_menu = []
+    starlist = ['☆☆☆☆☆', '★☆☆☆☆', '★★☆☆☆', '★★★☆☆', '★★★★☆', '★★★★★']
+    for iter in range(0,3):
+        current_menu = Menu.objects.filter(name=today_menus[iter])
+        current_review_list = Assessment.objects.filter(dailyMenu__menu = current_menu)
+
+        sum_of_taste = 0
+        for review_in_list in current_review_list:
+            sum_of_taste = sum_of_taste + review_in_list.point_taste
+
+        if len(current_review_list) == 0:
+            point_of_menu.append('평가없음')
+        else:
+            point_of_menu.append(starlist[round(sum_of_taste / len(current_review_list))])
+
+    return render(request, 'snuseggi/review_list.html', {'restaurant' : input, 'breakfast': today_menus[0], 'lunch' : today_menus[1],
+                                                         'dinner' : today_menus[2], 'point_breakfast' : point_of_menu[0],
+                                                         'point_lunch' : point_of_menu[1], 'point_dinner' : point_of_menu[2]})
