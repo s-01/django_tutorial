@@ -4,20 +4,20 @@
 }
 
 #body .name {
-	width: 1050px;
+	width: 950px;
 	height: 80px;
-	margin: 30px auto;
 	margin-bottom: 30px;
+	margin: 30px auto;
 	border: 2px solid #FCA205;
 	border-radius: 10px;
 	float: center auto;
-	text-align: center;
+	text-align: left;
 }
 
 #body .name a {
-	width: 500px;
+	width: 440px;
 	height: 50px;
-	margin-left: 30px;
+	margin-left: 10px;
 	margin-top: 13px;
 	padding: 10px;
 	font-size: 25px;
@@ -59,7 +59,7 @@
 }
 
 .more {
-	width: 600px;
+	width: 950px;
 	height: 20px;
 	margin: 30px auto;
 	border: 2px solid #FCA205;
