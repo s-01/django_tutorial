@@ -1,20 +1,25 @@
 <html>
 	<head>
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+	{% load staticfiles %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/assessment.css' %}" />
 	<title>SNUSEGGI Assessments</title>
+	<div id="site"><div class="sitename"><a href="main">SNUSEGGI</a></div><div class="sitename2">서울대학교 학식평가 시스템</div></div>
 	</head>
 	<body>
-		<p>★☆★☆★☆★☆ S.N.U.S.E.G.G.I Assessments☆★☆★☆★☆★</p>
+		<div align="center">★☆★☆★☆★☆ S.N.U.S.E.G.G.I Assessments☆★☆★☆★☆★</div>
 		{% for asst in assessment_list %}
-			<div>
-				<p>restaurant : {{asst.restaurant}}</p>
-				<p>classification: {{asst.classification}}</p>
-				<p>menu : {{asst.menu}}</p>
-				<p>date : {{asst.date}}</p>
-				<p>save_time : {{asst.save_time}}</p>
-				<p>point_taste : {{rest.point_taste}}</p>
-				<p>point_service : {{rest.point_service}}</p>
-				<p>point_price : {{rest.point_price}}</p>
-				<p>comment : {{asst.comment}}</p>
+			<div id="menu">
+				<div class="title">{{asst.restaurant}}</div>
+				<div align="left">classification: &nbsp;{{asst.classification}}</div>
+				<div align="left">menu : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{asst.menu}}</div>
+				<div align="left">date : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{asst.date}}</div>
+				<div align="left">save_time : &nbsp;&nbsp;&nbsp;&nbsp;{{asst.save_time}}</div>
+				<div align="left">point_taste : &nbsp;&nbsp;&nbsp;{{rest.point_taste}}</div>
+				<div align="left">point_service : &nbsp;{{rest.point_service}}</div>
+				<div align="left">point_price : &nbsp;&nbsp;&nbsp;{{rest.point_price}}</div>
+				<div align="left">comment : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{asst.comment}}</div>
 			</div>
 		{% endfor %}
 	</body>
