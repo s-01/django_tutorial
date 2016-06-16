@@ -4,6 +4,10 @@
     border-bottom: 1px solid #FCA205;
 }
 
+#site a:hover {
+    color: #FCA205;
+}
+
 .sitename {
     margin-top: 15px;
     margin-left: 20px;
