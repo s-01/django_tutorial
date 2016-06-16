@@ -16,7 +16,7 @@
 		{% for rest in restaurant_list %}
 			<div id="body">
 				{% if forloop.counter0 <= 2 %}
-				<div class="name"><a href="#">{{rest.name}}</a>
+				<div class="name"><a href="review_list?res={{rest}}">{{rest.name}}</a>
 				<p>평점 : 
 				     {% if rest.point_avg < 0.5 and rest.point_avg >= 0 %}
 					<img src="{% static "img/0.png" %}" width=150px; height=20px;>

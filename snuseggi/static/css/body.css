@@ -4,7 +4,7 @@
 }
 
 #body .name {
-	width: 600px;
+	width: 1050px;
 	height: 80px;
 	margin: 30px auto;
 	margin-bottom: 30px;
@@ -15,7 +15,7 @@
 }
 
 #body .name a {
-	width: 100px auto;
+	width: 500px;
 	height: 50px;
 	margin-left: 30px;
 	margin-top: 13px;
@@ -27,7 +27,7 @@
 }
 
 #body .name p {
-	width: 220px auto;
+	width: 200px;
 	font-size: 12px;
 	font-style: bold;
 	float: left;
@@ -37,7 +37,7 @@
 
 
 #body .asses {
-	width: 200px auto;
+	width: 100px auto;
 	margin-right: 30px;
 	padding-top: 5px;
 	height: 50px;

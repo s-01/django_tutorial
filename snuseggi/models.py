@@ -15,7 +15,7 @@ POINT_CHOICES = (
                  (FOUR, '4'),
                  (FIVE, '5'),)
 
-CLASSIFICATION = (('Lunch', 'Lunch'), ('Dinner', 'Dinner'),)
+CLASSIFICATION = (('BreakFast', 'BreakFast'), ('Lunch', 'Lunch'), ('Dinner', 'Dinner'),)
 
 class Menu(models.Model):
     name = models.CharField(max_length = 50, primary_key = True)
@@ -41,7 +41,7 @@ class DailyMenu(models.Model):
     menu = models.ForeignKey(Menu, on_delete=models.CASCADE)
     restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE)
     date = models.DateField(default = datetime.today)
-    classification = models.CharField(max_length=6, choices = CLASSIFICATION, default = 'Lunch')
+    classification = models.CharField(max_length=9, choices = CLASSIFICATION, default = 'Lunch')
     
     def __str__(self):
         return str(self.date) + " " + self.restaurant.name + " " + self.classification + " " + self.menu.name
@@ -51,7 +51,7 @@ class DailyMenu(models.Model):
     
 class Assessment(models.Model):
     restaurant = models.ForeignKey(Restaurant, blank=False, null=False, default = '301동')
-    classification = models.CharField(max_length=6, choices = CLASSIFICATION, default = 'Lunch')
+    classification = models.CharField(max_length=9, choices = CLASSIFICATION, default = 'Lunch')
     date = models.DateField(default = datetime.today)
     dailyMenu = models.ForeignKey(DailyMenu, blank=False, null=False)
     save_time = models.DateTimeField(default = datetime.now)
@@ -66,5 +66,5 @@ class Assessment(models.Model):
 
 class Select(models.Model):
     restaurant = models.ForeignKey(Restaurant, blank=False, null=False, default = '301동')
-    classification = models.CharField(max_length=6, choices = CLASSIFICATION, default = 'Lunch')
+    classification = models.CharField(max_length=9, choices = CLASSIFICATION, default = 'Lunch')
     date = models.DateField(default = datetime.today)

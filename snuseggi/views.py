@@ -68,7 +68,7 @@ def write(request):
 
 # input : name of restaurant
 def review_list(request):
-    input='기숙사식당관악사(919동)'
+    input= request.GET['res']
     today_menus = menulist(input)
 
     point_of_menu = []
